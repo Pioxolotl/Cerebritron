@@ -15,3 +15,5 @@ done
 cd Cerebritron
 
 touch .update_complete
+
+echo "Updating complete"
