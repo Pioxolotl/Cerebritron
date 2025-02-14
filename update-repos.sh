@@ -1,8 +1,5 @@
 #!/bin/sh
 
-mkdir -p Cerebritron_Components
-cd Cerebritron_Components
-
 for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebritron_CC; do
   if [ -d "$repo" ]; then
     echo "Updating $repo"
