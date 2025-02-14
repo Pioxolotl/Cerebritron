@@ -14,6 +14,4 @@ for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebri
 done
 cd Cerebritron
 
-touch .update_complete
-
 echo "Updating complete"
