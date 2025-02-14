@@ -167,3 +167,4 @@ cython_debug/
 /.vscode
 .docker_storage/
 /.aider.ignore
+.aider*

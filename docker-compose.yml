@@ -1,0 +1,104 @@
+services:
+  update:
+    image: alpine/git
+    volumes:
+      - ../:/parent
+    working_dir: /parent
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    entrypoint: ""
+    command: sh /parent/scripts/update-repos.sh
+
+    
+  # Real working components
+  # hal:
+  #   build: 
+  #     context: ../Cerebritron_Components/Cerebritron_HAL
+  #     args:
+  #       - VERSION=latest
+  #   container_name: HAL
+  #   depends_on:
+  #     update:
+  #       condition: service_completed_successfully
+  #   volumes:
+  #     - ../Cerebritron_Components/Cerebritron_HAL/logs:/app/logs
+  #   env_file:
+  #     - ../Cerebritron_Components/Cerebritron_HAL/.env
+  #   ports:
+  #     - "${TEMPERATURE_SENSOR_PORT:-5555}:5555"
+  #     - "${HUMIDITY_SENSOR_PORT:-5556}:5556"
+  #     - "${HIGH_TEMPERATURE_SENSOR_PORT:-5557}:5557"
+  #   restart: unless-stopped
+  #   networks:
+  #     - cerebritron-network
+
+  cc:
+    build: 
+      context: ../Cerebritron_Components/Cerebritron_CC
+      args:
+        - VERSION=latest
+    container_name: cc
+    depends_on:
+      update:
+        condition: service_completed_successfully
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../Cerebritron_Components/Cerebritron_CC:/app
+    environment:
+      - PYTHONPATH=/app
+    networks:
+      - cerebritron-network
+
+  # Mock services
+  ac:
+    build: 
+      context: ../Cerebritron_Components/Cerebritron_AC
+      dockerfile: Dockerfile
+    container_name: ac
+    depends_on:
+      update:
+        condition: service_completed_successfully
+    environment:
+      - SERVICE_NAME=ac
+      - PORT=5000
+    ports:
+      - "5000:5000"
+    networks:
+      - cerebritron-network
+
+  ps:
+    build:
+      context: ../Cerebritron_Components/Cerebritron_PS
+      dockerfile: Dockerfile
+    container_name: ps
+    depends_on:
+      update:
+        condition: service_completed_successfully
+    environment:
+      - SERVICE_NAME=ps
+      - PORT=5001
+    ports:
+      - "5001:5001"
+    networks:
+      - cerebritron-network
+
+  sm:
+    build:
+      context: ../Cerebritron_Components/Cerebritron_SM
+      dockerfile: Dockerfile
+    container_name: sm
+    depends_on:
+      update:
+        condition: service_completed_successfully
+    environment:
+      - SERVICE_NAME=sm
+      - PORT=5002
+    ports:
+      - "5002:5002"
+    networks:
+      - cerebritron-network
+
+networks:
+  cerebritron-network:
+    name: cerebritron-network
