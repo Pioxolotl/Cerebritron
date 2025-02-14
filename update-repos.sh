@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cd ..
 for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebritron_CC; do
   if [ -d "$repo" ]; then
     echo "Updating $repo"
@@ -11,5 +12,6 @@ for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebri
     git clone https://$GITHUB_TOKEN@github.com/Pioxolotl/$repo.git
   fi
 done
+cd Cerebritron
 
 touch .update_complete
