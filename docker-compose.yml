@@ -1,6 +1,6 @@
 include:
-  - path: ../Cerebritron_CC/cerebritron-cc.yml
-  - path: ../Cerebritron_AC/cerebritron-ac.yml
-  - path: ../Cerebritron_PS/cerebritron-ps.yml
-  - path: ../Cerebritron_SM/cerebritron-sm.yml
-  - path: ../Cerebritron_HAL/cerebritron-hal.yml
+  - path: ../Cerebritron_CC/docker-compose.yml
+  - path: ../Cerebritron_AC/docker-compose.yml
+  - path: ../Cerebritron_PS/docker-compose.yml
+  - path: ../Cerebritron_SM/docker-compose.yml
+  - path: ../Cerebritron_HAL/docker-compose.yml
