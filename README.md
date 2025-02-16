@@ -1,10 +1,11 @@
 # Informacje
 Projekt (publiczny) ze skryptem do pobierania prywatnych repo:
-https://github.com/Pioxolotl/Cerebritron_HAL.git
-https://github.com/Pioxolotl/Cerebritron_PS.git
-https://github.com/Pioxolotl/Cerebritron_CC.git
-https://github.com/Pioxolotl/Cerebritron_AC.git
-https://github.com/Pioxolotl/Cerebritron_SM.git
+
+- https://github.com/Pioxolotl/Cerebritron_HAL.git
+- https://github.com/Pioxolotl/Cerebritron_PS.git
+- https://github.com/Pioxolotl/Cerebritron_CC.git
+- https://github.com/Pioxolotl/Cerebritron_AC.git
+- https://github.com/Pioxolotl/Cerebritron_SM.git
 
 Wymagany wpis w .env
 ```
