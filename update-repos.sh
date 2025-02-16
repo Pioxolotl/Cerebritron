@@ -1,4 +1,6 @@
-#!/bin/sh
+if [ -f .env ]; then
+  export $(cat .env | xargs)
+fi
 
 cd ..
 for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebritron_CC; do
