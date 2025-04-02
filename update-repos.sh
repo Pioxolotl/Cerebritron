@@ -3,7 +3,7 @@ if [ -f .env ]; then
 fi
 
 cd ..
-for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebritron_CC; do
+for repo in Cerebritron_HAL Cerebritron_AC Cerebritron_PS Cerebritron_SM Cerebritron_CC Cerebritron_Core; do
   if [ -d "$repo" ]; then
     echo "Updating $repo"
     cd "$repo"
